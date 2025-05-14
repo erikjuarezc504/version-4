@@ -1,0 +1,267 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>AREY CENTRAL DE BELLEZA Y CAPACITACIÓN</title>
+  <style>
+    :root {
+      --verde-oliva: #556B2F;
+      --lila-intenso: #7D5BA6;
+      --blanco: #ffffff;
+      --fondo-suave: #f4f4f4;
+      --gris-claro: #e0e0e0;
+      --borde-radius: 12px;
+      --sombra: 0 4px 6px rgba(0, 0, 0, 0.1);
+    }
+
+    body {
+      margin: 0;
+      font-family: 'Segoe UI', sans-serif;
+      background-color: var(--fondo-suave);
+      color: #333;
+      padding: 20px;
+    }
+
+    header {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+
+    header h1 {
+      color: var(--verde-oliva);
+      margin: 0;
+      font-size: 1.8rem;
+    }
+
+    header h2 {
+      color: var(--lila-intenso);
+      margin: 10px 0 0;
+      font-weight: normal;
+    }
+
+    .card {
+      background-color: var(--blanco);
+      border-radius: var(--borde-radius);
+      box-shadow: var(--sombra);
+      padding: 20px;
+      margin: auto;
+      max-width: 700px;
+    }
+
+    form {
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    label {
+      font-weight: bold;
+    }
+
+    select, input, textarea {
+      padding: 10px;
+      border: 1px solid var(--gris-claro);
+      border-radius: var(--borde-radius);
+      font-size: 1rem;
+    }
+
+    .hidden {
+      display: none;
+    }
+
+    .radio-group {
+      display: flex;
+      gap: 10px;
+    }
+
+    .submit-btn {
+      background-color: var(--lila-intenso);
+      color: white;
+      border: none;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    .submit-btn:hover {
+      background-color: #5e4080;
+    }
+
+    @media (max-width: 600px) {
+      form {
+        font-size: 0.9rem;
+      }
+    }
+  </style>
+</head>
+<body>
+  <header>
+    <h1>AREY CENTRAL DE BELLEZA Y CAPACITACIÓN</h1>
+    <h2>Control de Ingresos y Egresos</h2>
+  </header>
+
+  <div class="card">
+    <form id="registroForm">
+      <label for="unidad">Unidad de negocio</label>
+      <select id="unidad" required>
+        <option value="">Seleccione...</option>
+        <option>AREY Morelia</option>
+        <option>AREY Capacitación</option>
+        <option>AREY Foráneo</option>
+      </select>
+
+      <label for="registro">Registró</label>
+      <select id="registro" required>
+        <option value="">Seleccione...</option>
+        <option>Yera</option>
+        <option>Sara</option>
+        <option>Marlene</option>
+      </select>
+
+      <label>Tipo de movimiento</label>
+      <div class="radio-group">
+        <label><input type="radio" name="tipoMovimiento" value="ingreso"> Ingreso</label>
+        <label><input type="radio" name="tipoMovimiento" value="egreso"> Egreso</label>
+      </div>
+
+      <div id="ingresoSection" class="hidden">
+        <label for="tipoIngreso">Tipo de ingreso</label>
+        <select id="tipoIngreso">
+          <option value="">Seleccione...</option>
+          <option>DELINEADO DE OJOS</option>
+          <option>DEPILACIÓN CON CERA</option>
+          <option>EXTENSIONES DE PESTAÑAS</option>
+          <option>MASAJES</option>
+          <option>MICROPIGMENTACIÓN DE CEJAS</option>
+          <option>MICROPIGMENTACIÓN DE LABIOS</option>
+          <option>MICROPIGMENTACIÓN DE OJOS</option>
+          <option>PLASMA RICO EN PLAQUETAS</option>
+          <option>POWER BROWS</option>
+          <option>TRATAMIENTOS FACIALES</option>
+          <option>TRATAMIENTOS REDUCTIVOS</option>
+          <option>DEPILACIÓN LASER</option>
+          <option>CURSO LABIOS Y OJOS</option>
+          <option>CURSO LABIOS</option>
+          <option>CURSO OJOS</option>
+          <option>CURSO DE CEJAS, LABIOS Y OJOS</option>
+          <option>CURSO MICROPICMENTACION DE CEJAS</option>
+          <option>CURSO CERA ESPAÑOLA</option>
+          <option>CURSO PRP, DERMAPEN Y BB GLOW</option>
+          <option>CURSO PRP</option>
+          <option>CURSO BOTOX</option>
+          <option>CURSO MICRO PUNTURA BRASILEÑA</option>
+          <option>CURSO DERMAPEN</option>
+          <option>CURSO BB GLOW</option>
+          <option>CURSO PLASMA PEN</option>
+          <option>CURSO MESOTERAPIA</option>
+          <option>CURSO DE PRIMEROS AUXILIOS</option>
+          <option>CURSO DE ASEPSIA Y ANTISEPSIA</option>
+          <option>DIPLOMADO DE AUXILIAR DE ENFERMERÍA</option>
+          <option>DIPLOMADO DE MICROPIGMENTACIÓN FACIAL</option>
+          <option>DIPLOMADO DE PODOLOGÍA</option>
+          <option>DIPLOMADO DERMOCOSMETOLOGIA</option>
+          <option>OTROS CURSOS (CUALQUIERA QUE NO ESTE EN ESTA LISTA)</option>
+        </select>
+
+        <label for="especificarIngreso" class="hidden">Especificar servicio o curso cobrado</label>
+        <textarea id="especificarIngreso" class="hidden"></textarea>
+
+        <label for="captacion">Forma de captación</label>
+        <select id="captacion">
+          <option>Cliente habitual</option>
+          <option>Recomendación</option>
+          <option>Publicación pagada</option>
+          <option>Publicación orgánica</option>
+          <option>Alumno</option>
+        </select>
+
+        <label for="realizo">Realizó el servicio</label>
+        <select id="realizo">
+          <option>Yera</option>
+          <option>Sara</option>
+        </select>
+
+        <label for="pago">Forma de pago</label>
+        <select id="pago">
+          <option>Efectivo</option>
+          <option>Tarjeta</option>
+          <option>Transferencia</option>
+        </select>
+      </div>
+
+      <div id="egresoSection" class="hidden">
+        <label for="tipoEgreso">Tipo de egreso</label>
+        <select id="tipoEgreso">
+          <option>ADQUISICIÓN DE MERCANCÍAS</option>
+          <option>CAFETERÍA (CAFÉ, TE, AZÚCAR, AGUA, REFRESCO)</option>
+          <option>EXTRACCIÓN DE UTILIDAD</option>
+          <option>LIMPIEZA E HIGIENE</option>
+          <option>MANTENIMIENTO</option>
+          <option>MOBILIARIO Y EQUIPOS</option>
+          <option>NOMINA</option>
+          <option>PAGO DE COMISIONES</option>
+          <option>PAPELERÍA</option>
+          <option>PUBLICIDAD</option>
+          <option>RENTA</option>
+          <option>SERVICIOS (AGUA, LUZ, INTERNET)</option>
+          <option>VIÁTICOS (GASTOS DE TRANSPORTE, ALIMENTOS, HOSPEDAJE)</option>
+          <option>GASTOS PERSONALES</option>
+          <option>OTROS (CUALQUIER EGRESO QUE NO ENTRE EN LA CATEGORÍAS ANTERIORES)</option>
+        </select>
+
+        <label for="especificarEgreso" class="hidden">Especificar el tipo de egreso</label>
+        <textarea id="especificarEgreso" class="hidden"></textarea>
+      </div>
+
+      <label for="monto">Monto</label>
+      <input type="number" id="monto" required min="0">
+
+      <label for="observaciones">Observaciones</label>
+      <textarea id="observaciones"></textarea>
+
+      <button class="submit-btn" type="submit">Registrar</button>
+    </form>
+  </div>
+
+  <script>
+    const tipoMovimientoRadios = document.querySelectorAll('input[name="tipoMovimiento"]');
+    const ingresoSection = document.getElementById('ingresoSection');
+    const egresoSection = document.getElementById('egresoSection');
+    const tipoIngreso = document.getElementById('tipoIngreso');
+    const tipoEgreso = document.getElementById('tipoEgreso');
+    const especificarIngreso = document.getElementById('especificarIngreso');
+    const especificarEgreso = document.getElementById('especificarEgreso');
+    const especificarIngresoLabel = document.querySelector('label[for="especificarIngreso"]');
+    const especificarEgresoLabel = document.querySelector('label[for="especificarEgreso"]');
+
+    tipoMovimientoRadios.forEach(radio => {
+      radio.addEventListener('change', e => {
+        if (e.target.value === 'ingreso') {
+          ingresoSection.classList.remove('hidden');
+          egresoSection.classList.add('hidden');
+        } else {
+          egresoSection.classList.remove('hidden');
+          ingresoSection.classList.add('hidden');
+        }
+      });
+    });
+
+    tipoIngreso.addEventListener('change', () => {
+      const show = tipoIngreso.value.includes('OTROS');
+      especificarIngreso.classList.toggle('hidden', !show);
+      especificarIngresoLabel.classList.toggle('hidden', !show);
+    });
+
+    tipoEgreso.addEventListener('change', () => {
+      const show = tipoEgreso.value.includes('OTROS');
+      especificarEgreso.classList.toggle('hidden', !show);
+      especificarEgresoLabel.classList.toggle('hidden', !show);
+    });
+
+    document.getElementById('registroForm').addEventListener('submit', function (e) {
+      e.preventDefault();
+      alert('Registro enviado. (Integración con Google Apps Script pendiente)');
+    });
+  </script>
+</body>
+</html>
